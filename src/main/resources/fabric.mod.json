@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "example",
+  "version": "${version}",
+  "name": "Example",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  "authors": [
+    "Stereo528"
+  ],
+  "contact": {
+    "homepage": "https://stereo528.com",
+    "issues": "https://github.com/Stereo528/quilt-template-mod/issues",
+    "sources": "https://github.com/Stereo528/quilt-template-mod"
+  },
+  "license": " BSD-3-Clause",
+  "icon": "assets/example/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.stereo528.example.Example"
+    ],
+    "client": [
+      "com.stereo528.example.ExampleClient"
+    ]
+  },
+  "mixins": [
+    "example.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": "~1.20.4",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}

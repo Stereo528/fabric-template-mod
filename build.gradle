@@ -18,12 +18,10 @@ repositories {
 dependencies {
 	minecraft libs.minecraft
 
-	mappings loom.layered {
-		it.officialMojangMappings { nameSyntheticMembers = false }
-		it.mappings("org.quiltmc:quilt-mappings:${libs.versions.minecraft.get()}+build.3:intermediary-v2")
-	}
+	mappings loom.officialMojangMappings()
+
 	modImplementation libs.fabric.loader
-	
+
 	modImplementation libs.bundles.fabric.api
 	modImplementation libs.bundles.dependencies
 	modLocalRuntime(libs.bundles.dev.mods)

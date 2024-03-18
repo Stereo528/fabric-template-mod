@@ -1,4 +1,4 @@
-# Quilt Template Mod
+# Fabric Template Mod
 
 Stereo528's unofficial Fabric Template Mod. Mainly used because QSL 1.20.4 doesn't exist yet. highly unlikely to be maintained unless quilt doesn't update
 
