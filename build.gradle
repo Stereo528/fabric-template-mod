@@ -29,7 +29,7 @@ dependencies {
     mappings loom.officialMojangMappings()
     modImplementation libs.fabric.loader
 
-    modImplementation libs.fapi
+    modImplementation libs.bundles.dependencies
     modLocalRuntime libs.bundles.dev
 }
 
