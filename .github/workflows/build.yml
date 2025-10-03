@@ -1,5 +1,14 @@
 name: build
-on: [ pull_request, push ]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: Is this a release build?
+        type: boolean
+        required: true
+        default: false
 
 jobs:
   build:
@@ -24,7 +33,22 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build w/ Gradle
-        run: ./gradlew publish
+        run: ./gradlew build
+
+
+      - name: Publish to Maven [Releases]
+        if: ${{ github.event.inputs.release }}
+        run: >-
+          ./gradlew publishAllPublicationsToDevOsReleasesRepository
+          -PdevOsReleasesUsername="${{ secrets.MAVEN_USER }}"
+          -PdevOsReleasesPassword="${{ secrets.MAVEN_PASS }}"
+
+      - name: Publish to Maven [Snapshots]
+        if: ${{ !github.event.inputs.release }}
+        run: >-
+          ./gradlew publishAllPublicationsToDevOsSnapshotsRepository
+          -PdevOsSnapshotsUsername="${{ secrets.MAVEN_USER }}"
+          -PdevOsSnapshotsPassword="${{ secrets.MAVEN_PASS }}"
 
       - name: Capture Build Artifacts
         uses: actions/upload-artifact@v4
