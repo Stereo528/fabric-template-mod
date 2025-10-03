@@ -43,13 +43,6 @@ jobs:
           -PdevOsReleasesUsername="${{ secrets.MAVEN_USER }}"
           -PdevOsReleasesPassword="${{ secrets.MAVEN_PASS }}"
 
-      - name: Publish to Maven [Snapshots]
-        if: ${{ !github.event.inputs.release }}
-        run: >-
-          ./gradlew publishAllPublicationsToDevOsSnapshotsRepository
-          -PdevOsSnapshotsUsername="${{ secrets.MAVEN_USER }}"
-          -PdevOsSnapshotsPassword="${{ secrets.MAVEN_PASS }}"
-
       - name: Capture Build Artifacts
         uses: actions/upload-artifact@v4
         with:
